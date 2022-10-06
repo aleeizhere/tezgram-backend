@@ -89,13 +89,17 @@ export class AppService {
   }
 
   async newImage(username: string, url: string) {
-    const reqObj = await this.appModel.find({ username }, { images: 1 });
+    try {
+      const reqObj = await this.appModel.find({ username }, { images: 1 });
 
-    const newImages = [...reqObj[0].images, url];
-    const updated = await this.appModel.findOneAndUpdate(
-      { username },
-      { images: newImages },
-    );
+      const newImages = [...reqObj[0].images, url];
+      const updated = await this.appModel.findOneAndUpdate(
+        { username },
+        { images: newImages },
+      );
+    } catch (e) {
+      return e.message;
+    }
   }
 
   async deleteImage(username: string, url: string) {
