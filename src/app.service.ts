@@ -97,6 +97,8 @@ export class AppService {
         { username },
         { images: newImages },
       );
+      console.log('reqObj => ', reqObj[0].images.length);
+      console.log('updatedObj => ', updated.images.length);
     } catch (e) {
       return e.message;
     }

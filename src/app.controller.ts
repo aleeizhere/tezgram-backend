@@ -30,7 +30,7 @@ export class AppController {
   }
   @Post('/newimage')
   async newImage(@Body('username') username: string, @Body('url') url: string) {
-    await this.appService.newImage(username, url);
+    return await this.appService.newImage(username, url);
   }
   @Post('deleteimage')
   async deleteImage(
