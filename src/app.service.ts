@@ -27,9 +27,11 @@ export class AppService {
       images: [],
     });
 
+    //esa object leke aao jahan username and email yeh houn.
+    //agar username match ho bhi gaya aur email match nahi hua tab bhi add krdega
+
     const dbObj = await this.appModel.findOne({
-      username: username,
-      email: email,
+      $or: [{ username: username }, { email: email }],
     });
 
     if (dbObj) {
