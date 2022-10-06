@@ -9,6 +9,10 @@ import { HttpException } from '@nestjs/common/exceptions';
 export class AppService {
   constructor(@InjectModel('App') private readonly appModel: Model<AppModel>) {}
 
+  async getHello() {
+    return 'Hello';
+  }
+
   async signUp(
     username: string,
     fullname: string,

@@ -6,6 +6,11 @@ import { Body, Param, Post } from '@nestjs/common/decorators';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get('/')
+  async getHello() {
+    return await this.appService.getHello();
+  }
+
   @Post('/signup')
   async signUp(
     @Body('username') username: string,
