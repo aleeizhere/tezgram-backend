@@ -7,7 +7,7 @@ import { AppSchema } from './app.model';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://aleeizhere:tezgram123@cluster0.efh6kja.mongodb.net/?retryWrites=true&w=majority',
+      'abchere',
     ),
     MongooseModule.forFeature([{ name: 'App', schema: AppSchema }]),
   ],
